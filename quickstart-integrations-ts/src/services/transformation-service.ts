@@ -15,19 +15,6 @@ class TransformationService {
         return value
           .toLowerCase()
           .replace(/\b\w/g, (char) => char.toUpperCase());
-      case "TO_CAMEL_CASE":
-        return value
-          .toLowerCase()
-          .replace(/[^a-zA-Z0-9]+(.)?/g, (match, chr) =>
-            chr ? chr.toUpperCase() : ""
-          )
-          .replace(/^./, (char) => char.toLowerCase());
-      case "TO_SNAKE_CASE":
-        return value
-          .replace(/\W+/g, " ")
-          .split(/ |\B(?=[A-Z])/)
-          .map((word) => word.toLowerCase())
-          .join("_");
       case "SPONGEBOB_CASE":
         return value
           .split("")

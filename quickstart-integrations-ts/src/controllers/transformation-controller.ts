@@ -10,7 +10,6 @@ export async function getRemoteListOptions(req, res) {
     return res.status(500).send({ message: "internal server error" });
   }
 }
-
 export async function executeAction(req, res) {
   const { shortLivedToken } = req.session;
   const { payload } = req.body;

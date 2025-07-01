@@ -1,0 +1,81 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Debug App (ts-node)",
+      "type": "node",
+      "request": "launch",
+      "program": "${workspaceFolder}/quickstart-integrations-ts/src/app.ts",
+      "cwd": "${workspaceFolder}/quickstart-integrations-ts",
+      "runtimeArgs": ["-r", "ts-node/register"],
+      "env": {
+        "NODE_ENV": "development",
+        "PORT": "8080"
+      },
+      "envFile": "${workspaceFolder}/quickstart-integrations-ts/.env",
+      "sourceMaps": true,
+      "resolveSourceMapLocations": [
+        "${workspaceFolder}/**",
+        "!**/node_modules/**"
+      ],
+      "console": "integratedTerminal",
+      "restart": true,
+      "protocol": "inspector",
+      "skipFiles": ["<node_internals>/**"]
+    },
+    {
+      "name": "Debug App (with dev script)",
+      "type": "node",
+      "request": "launch",
+      "program": "${workspaceFolder}/quickstart-integrations-ts/node_modules/.bin/ts-node-dev",
+      "args": ["--watch", "./.env", "./src/app.ts"],
+      "cwd": "${workspaceFolder}/quickstart-integrations-ts",
+      "env": {
+        "NODE_ENV": "development",
+        "PORT": "8080"
+      },
+      "envFile": "${workspaceFolder}/quickstart-integrations-ts/.env",
+      "sourceMaps": true,
+      "resolveSourceMapLocations": [
+        "${workspaceFolder}/**",
+        "!**/node_modules/**"
+      ],
+      "console": "integratedTerminal",
+      "restart": true,
+      "protocol": "inspector",
+      "skipFiles": ["<node_internals>/**"],
+      "outputCapture": "std"
+    },
+    {
+      "name": "Attach to Process",
+      "type": "node",
+      "request": "attach",
+      "port": 9229,
+      "restart": true,
+      "localRoot": "${workspaceFolder}/quickstart-integrations-ts",
+      "remoteRoot": "${workspaceFolder}/quickstart-integrations-ts",
+      "sourceMaps": true,
+      "resolveSourceMapLocations": [
+        "${workspaceFolder}/**",
+        "!**/node_modules/**"
+      ],
+      "skipFiles": ["<node_internals>/**"]
+    },
+    {
+      "name": "Debug Tests",
+      "type": "node",
+      "request": "launch",
+      "program": "${workspaceFolder}/quickstart-integrations-ts/node_modules/.bin/jest",
+      "args": ["--runInBand"],
+      "cwd": "${workspaceFolder}/quickstart-integrations-ts",
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "neverOpen",
+      "disableOptimisticBPs": true,
+      "sourceMaps": true,
+      "env": {
+        "NODE_ENV": "test"
+      },
+      "envFile": "${workspaceFolder}/quickstart-integrations-ts/.env"
+    }
+  ]
+}

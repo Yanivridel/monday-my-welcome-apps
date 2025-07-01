@@ -1,4 +1,4 @@
-import initMondayClient from 'monday-sdk-js';
+import initMondayClient from "monday-sdk-js";
 
 class MondayService {
   static async getColumnValue(token, itemId, columnId) {
